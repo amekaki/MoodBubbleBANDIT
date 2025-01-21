@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfx6kb75t8asg"]
+
+[ext_resource type="Texture2D" uid="uid://gsy23yyom2dk" path="res://assets/sprites/background.jpg" id="1_x1cnr"]
+
+[node name="Background" type="Node2D"]
+
+[node name="Background2" type="Sprite2D" parent="."]
+z_index = -1
+z_as_relative = false
+position = Vector2(-792, -56)
+scale = Vector2(0.319751, 0.311973)
+texture = ExtResource("1_x1cnr")
+
+[node name="Background8" type="Sprite2D" parent="."]
+z_index = -1
+z_as_relative = false
+position = Vector2(-1464, -56)
+scale = Vector2(0.319751, 0.311973)
+texture = ExtResource("1_x1cnr")
+
+[node name="Background3" type="Sprite2D" parent="."]
+z_index = -1
+z_as_relative = false
+position = Vector2(-1136, -56)
+scale = Vector2(0.319751, 0.311973)
+texture = ExtResource("1_x1cnr")
+
+[node name="Background4" type="Sprite2D" parent="."]
+z_index = -1
+z_as_relative = false
+position = Vector2(-448, -56)
+scale = Vector2(0.319751, 0.311973)
+texture = ExtResource("1_x1cnr")
+
+[node name="Background5" type="Sprite2D" parent="."]
+z_index = -1
+z_as_relative = false
+position = Vector2(-104, -56)
+scale = Vector2(0.319751, 0.311973)
+texture = ExtResource("1_x1cnr")
+
+[node name="Background6" type="Sprite2D" parent="."]
+z_index = -1
+z_as_relative = false
+position = Vector2(239.995, -56)
+scale = Vector2(0.319751, 0.311973)
+texture = ExtResource("1_x1cnr")
+
+[node name="Background7" type="Sprite2D" parent="."]
+z_index = -1
+z_as_relative = false
+position = Vector2(583.995, -56)
+scale = Vector2(0.319751, 0.311973)
+texture = ExtResource("1_x1cnr")
+
+[node name="Background9" type="Sprite2D" parent="."]
+z_index = -1
+z_as_relative = false
+position = Vector2(930.334, -57.5084)
+scale = Vector2(0.319751, 0.311973)
+texture = ExtResource("1_x1cnr")

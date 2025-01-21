@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bucu5c7vx88m0"]
+
+[ext_resource type="FontFile" uid="uid://drljns2yrs1tr" path="res://assets/fonts/PixelOperator8.ttf" id="1_w0eba"]
+[ext_resource type="Script" path="res://scripts/restart.gd" id="2_w6xqj"]
+
+[node name="Restart" type="Button"]
+offset_left = 2048.0
+offset_top = 1200.0
+offset_right = 2252.0
+offset_bottom = 1240.0
+theme_override_fonts/font = ExtResource("1_w0eba")
+theme_override_font_sizes/font_size = 32
+text = "RESTART"
+script = ExtResource("2_w6xqj")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]

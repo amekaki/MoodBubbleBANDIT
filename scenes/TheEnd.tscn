@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://chvcjnjb1lnlu"]
+
+[ext_resource type="Script" path="res://scripts/the_end.gd" id="1_r1bca"]
+[ext_resource type="Texture2D" uid="uid://dc6c0c0lus8cw" path="res://assets/封面背景.png" id="2_dvs0w"]
+[ext_resource type="PackedScene" uid="uid://bxx82yp7vctdt" path="res://scenes/EndActor.tscn" id="2_s8avw"]
+[ext_resource type="AudioStream" uid="uid://1qorys1qsl71" path="res://assets/music/player/game.mp3" id="3_qouey"]
+[ext_resource type="FontFile" uid="uid://p8qv82vmker0" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="5_4dcng"]
+[ext_resource type="Script" path="res://scripts/button/end_exit.gd" id="6_j4sh6"]
+[ext_resource type="Script" path="res://scripts/button/restart.gd" id="7_uyhxs"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_r1bca")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_dvs0w")
+
+[node name="EndActor" parent="." instance=ExtResource("2_s8avw")]
+position = Vector2(-16, 1)
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 72)
+stream = ExtResource("3_qouey")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(1.13011, 1.00551)
+zoom = Vector2(20, 20)
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 32.0
+offset_top = 13.0
+offset_right = 73.0
+offset_bottom = 44.0
+scale = Vector2(0.186538, 0.186538)
+theme_override_fonts/font = ExtResource("5_4dcng")
+text = "EXIT"
+script = ExtResource("6_j4sh6")
+
+[node name="Restart" type="Button" parent="."]
+offset_left = 32.0
+offset_top = 21.0
+offset_right = 107.0
+offset_bottom = 52.0
+scale = Vector2(0.199387, 0.199387)
+theme_override_fonts/font = ExtResource("5_4dcng")
+text = "RESTART"
+script = ExtResource("7_uyhxs")
+
+[connection signal="button_down" from="Exit" to="Exit" method="_on_button_down"]
+[connection signal="button_down" from="Restart" to="Restart" method="_on_button_down"]

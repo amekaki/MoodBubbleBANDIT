@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyu3ly3cvmxsw"]
+
+[ext_resource type="PackedScene" uid="uid://dp5hy5exhawju" path="res://scenes/npc.tscn" id="1_uctma"]
+
+[node name="npcs" type="Node"]
+
+[node name="happy" parent="." instance=ExtResource("1_uctma")]
+position = Vector2(-2210.33, -178.492)
+
+[node name="angry" parent="." instance=ExtResource("1_uctma")]
+position = Vector2(-1738.33, -274.492)
+status_type = "angry"
+
+[node name="sad" parent="." instance=ExtResource("1_uctma")]
+position = Vector2(-1554.33, -258.492)
+status_type = "sad"
+
+[node name="fear" parent="." instance=ExtResource("1_uctma")]
+position = Vector2(-1418.33, -210.492)
+status_type = "fear"

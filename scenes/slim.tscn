@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://bddrwa05xkpcm"]
+
+[ext_resource type="Script" path="res://scripts/slim.gd" id="1_2h6cg"]
+[ext_resource type="Texture2D" uid="uid://clxtxjkji6jka" path="res://assets/sprites/小锅盖章鱼.png" id="2_65d25"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swu8e"]
+atlas = ExtResource("2_65d25")
+region = Rect2(0, 0, 33, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wment"]
+atlas = ExtResource("2_65d25")
+region = Rect2(0, 23, 33, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o5dkk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swu8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wment")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7m8xi"]
+size = Vector2(34, 9)
+
+[node name="Slim" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_2h6cg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_o5dkk")
+autoplay = "default"
+frame_progress = 0.159658
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 5.5)
+shape = SubResource("RectangleShape2D_7m8xi")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, 5)
+target_position = Vector2(10, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 5)
+target_position = Vector2(-11, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

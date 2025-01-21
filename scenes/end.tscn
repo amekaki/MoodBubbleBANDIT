@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bt5s768ubd4nl"]
+
+[node name="End" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -280.0
+offset_top = -96.0
+offset_right = -215.0
+offset_bottom = -73.0
+scale = Vector2(8.41069, 8.41069)
+text = "Success!"
+
+[node name="Camera2D" type="Camera2D" parent="."]

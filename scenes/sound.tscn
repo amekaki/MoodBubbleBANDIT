@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://bo2fah5tcrhh2"]
+
+[ext_resource type="Script" path="res://scripts/sound.gd" id="1_kmdup"]
+[ext_resource type="AudioStream" uid="uid://bgxdyfjijjdel" path="res://assets/music/sounds/bubble_break.mp3" id="2_b37gc"]
+[ext_resource type="AudioStream" uid="uid://bs24xspgppafd" path="res://assets/music/sounds/explosion.wav" id="3_cc7qv"]
+[ext_resource type="AudioStream" uid="uid://y53hfuwlkjts" path="res://assets/music/sounds/jump.wav" id="4_th7iv"]
+[ext_resource type="AudioStream" uid="uid://d3o2egs67qbu5" path="res://assets/music/sounds/cartoon-jump-6462 (1).mp3" id="4_xdaec"]
+[ext_resource type="AudioStream" uid="uid://i3l4wmvoxwh8" path="res://assets/music/sounds/coin.wav" id="5_wbnwb"]
+[ext_resource type="AudioStream" uid="uid://n4ssq15dcydf" path="res://assets/music/sounds/power_up.wav" id="6_irmoa"]
+
+[node name="Sound" type="Node"]
+script = ExtResource("1_kmdup")
+
+[node name="BubbleBreak" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_b37gc")
+attenuation = 6.77227e-05
+bus = &"SFX"
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_cc7qv")
+attenuation = 0.000130832
+bus = &"SFX"
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_xdaec")
+volume_db = 6.0
+attenuation = 1.69307e-05
+bus = &"SFX"
+
+[node name="GetStar" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_wbnwb")
+attenuation = 1.75278e-05
+bus = &"SFX"
+
+[node name="PowerUp" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_irmoa")
+attenuation = 7.77932e-05
+bus = &"SFX"
+
+[node name="Climb" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_th7iv")
+volume_db = -20.0

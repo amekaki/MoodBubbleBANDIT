@@ -1,0 +1,97 @@
+[gd_scene load_steps=14 format=3 uid="uid://ccjgsc4b5d5qh"]
+
+[ext_resource type="Script" path="res://scripts/boom.gd" id="1_s5hms"]
+[ext_resource type="Texture2D" uid="uid://ddwh8p5160ugl" path="res://assets/sprites/tools/巴格达.png" id="2_xckyi"]
+[ext_resource type="AudioStream" uid="uid://bs24xspgppafd" path="res://assets/music/sounds/explosion.wav" id="3_6s6vd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jlhp"]
+atlas = ExtResource("2_xckyi")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bd5ej"]
+atlas = ExtResource("2_xckyi")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwbwd"]
+atlas = ExtResource("2_xckyi")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5gay"]
+atlas = ExtResource("2_xckyi")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inxec"]
+atlas = ExtResource("2_xckyi")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e5dx"]
+atlas = ExtResource("2_xckyi")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r77qy"]
+atlas = ExtResource("2_xckyi")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sqs1"]
+atlas = ExtResource("2_xckyi")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gu7ng"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jlhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bd5ej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwbwd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5gay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inxec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5e5dx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r77qy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sqs1")
+}],
+"loop": false,
+"name": &"explore",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u547w"]
+radius = 2.06155
+
+[node name="Boom" type="Area2D" groups=["Boom"]]
+script = ExtResource("1_s5hms")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gu7ng")
+animation = &"explore"
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_u547w")
+
+[node name="BoomSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6s6vd")
+bus = &"SFX"
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

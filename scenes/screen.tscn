@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://3j2h2xh6wekg"]
+
+[ext_resource type="Script" path="res://scripts/camera_2d.gd" id="1_yu8w8"]
+[ext_resource type="Texture2D" uid="uid://cweysnly7sgxb" path="res://assets/sprites/world_tileset.png" id="2_us46b"]
+[ext_resource type="Texture2D" uid="uid://dyuuih2wyi6jd" path="res://assets/sprites/fruit.png" id="3_p7dl6"]
+[ext_resource type="PackedScene" uid="uid://dlnq6pdi3kupo" path="res://scenes/pannel.tscn" id="4_fvyrh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho0x3"]
+atlas = ExtResource("3_p7dl6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8kpd"]
+atlas = ExtResource("3_p7dl6")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ed1cm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ho0x3")
+}],
+"loop": true,
+"name": &"Status1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8kpd")
+}],
+"loop": true,
+"name": &"Status2",
+"speed": 5.0
+}]
+
+[node name="Screen" type="Camera2D"]
+position = Vector2(0, -4)
+zoom = Vector2(4, 4)
+script = ExtResource("1_yu8w8")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 234.0
+offset_top = -155.0
+offset_right = 295.0
+offset_bottom = -132.0
+rotation = 0.00602329
+text = "Pannel"
+
+[node name="PannelBackground" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(265.5, -104.75)
+scale = Vector2(2.1875, 2.1)
+texture = ExtResource("2_us46b")
+region_enabled = true
+region_rect = Rect2(63.9538, 224.031, 16.1243, 15.9265)
+
+[node name="status" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(266, -104)
+sprite_frames = SubResource("SpriteFrames_ed1cm")
+animation = &"Status1"
+
+[node name="Pannel" parent="." instance=ExtResource("4_fvyrh")]

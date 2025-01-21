@@ -1,0 +1,742 @@
+[gd_scene load_steps=35 format=4 uid="uid://dpa0r5onwowg"]
+
+[ext_resource type="PackedScene" uid="uid://2ni4rk542blr" path="res://scenes/player.tscn" id="1_eej56"]
+[ext_resource type="PackedScene" uid="uid://bfx6kb75t8asg" path="res://scenes/tailmap/background.tscn" id="1_jpmgg"]
+[ext_resource type="PackedScene" uid="uid://c6cnfp6su7b32" path="res://scenes/npc_dialog.tscn" id="2_rouue"]
+[ext_resource type="PackedScene" uid="uid://dgm4qehimbju0" path="res://scenes/object/kill_area.tscn" id="3_py6tk"]
+[ext_resource type="PackedScene" uid="uid://b64fvh8akdb33" path="res://scenes/game_manage.tscn" id="4_tnfmg"]
+[ext_resource type="PackedScene" uid="uid://dg5mhoc3bklua" path="res://scenes/object/coin.tscn" id="4_ukyv1"]
+[ext_resource type="PackedScene" uid="uid://dlnq6pdi3kupo" path="res://scenes/pannel.tscn" id="6_pajj0"]
+[ext_resource type="PackedScene" uid="uid://wjxfwju2050v" path="res://scenes/object/box_obstacle.tscn" id="8_hw7iy"]
+[ext_resource type="PackedScene" uid="uid://dp5hy5exhawju" path="res://scenes/npc.tscn" id="9_5lypr"]
+[ext_resource type="PackedScene" uid="uid://bddrwa05xkpcm" path="res://scenes/slim.tscn" id="9_q06y6"]
+[ext_resource type="Texture2D" uid="uid://ba0q2fyymby5j" path="res://assets/sprites/tail/小石砖-路牌-梯子.png" id="11_0smem"]
+[ext_resource type="Texture2D" uid="uid://dl4umh4kjhpp4" path="res://assets/sprites/tail/小石砖.png" id="12_n7let"]
+[ext_resource type="Texture2D" uid="uid://dyj5dhf5vn32j" path="res://assets/sprites/tail/小草砖.png" id="13_smxi3"]
+[ext_resource type="PackedScene" uid="uid://lw7jbt8vkjps" path="res://scenes/object/door.tscn" id="14_r7mjc"]
+[ext_resource type="Texture2D" uid="uid://hf68nj7jpq54" path="res://assets/sprites/新手引导.png" id="14_st60e"]
+[ext_resource type="Texture2D" uid="uid://7udkrueu5x6f" path="res://assets/sprites/隐身.png" id="15_2la50"]
+[ext_resource type="PackedScene" uid="uid://dmstcx6vitdg2" path="res://scenes/music.tscn" id="16_bmfgk"]
+[ext_resource type="Texture2D" uid="uid://c4vus8mxb3lh0" path="res://assets/sprites/新手引导3.png" id="16_m54nf"]
+[ext_resource type="PackedScene" uid="uid://bo2fah5tcrhh2" path="res://scenes/sound.tscn" id="18_ruldq"]
+[ext_resource type="Texture2D" uid="uid://cu7jt5ttq8ksq" path="res://assets/sprites/新手引导按键.png" id="19_6jqna"]
+[ext_resource type="FontFile" uid="uid://drljns2yrs1tr" path="res://assets/fonts/PixelOperator8.ttf" id="19_a82ef"]
+[ext_resource type="FontFile" uid="uid://p8qv82vmker0" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="20_a03bd"]
+[ext_resource type="Script" path="res://scripts/bubble_guide.gd" id="22_olh05"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a3qbm"]
+bg_color = Color(0.0708272, 0.0708272, 0.0708272, 1)
+border_width_left = 4
+border_width_bottom = 2
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q7snw"]
+texture = ExtResource("12_n7let")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8twrk"]
+texture = ExtResource("13_smxi3")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:0/0 = 0
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:1/0 = 0
+9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_gnicm"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 6
+sources/0 = SubResource("TileSetAtlasSource_q7snw")
+sources/1 = SubResource("TileSetAtlasSource_8twrk")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mbwsl"]
+texture = ExtResource("11_0smem")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_p0gkg"]
+physics_layer_0/collision_layer = 8
+physics_layer_0/collision_mask = 8
+sources/0 = SubResource("TileSetAtlasSource_mbwsl")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ponng"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilyl2"]
+size = Vector2(328, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evnr6"]
+size = Vector2(80, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukysu"]
+size = Vector2(130, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqkim"]
+size = Vector2(64, 114)
+
+[node name="Game" type="Node2D"]
+position = Vector2(141.666, 144.508)
+
+[node name="GameManage" parent="." instance=ExtResource("4_tnfmg")]
+unique_name_in_owner = true
+
+[node name="Background" parent="." instance=ExtResource("1_jpmgg")]
+
+[node name="Guide" type="Node2D" parent="."]
+
+[node name="MoveGuide" type="Node2D" parent="Guide"]
+position = Vector2(-1338.67, -6.50842)
+scale = Vector2(0.715257, 0.715257)
+
+[node name="udlf" type="Sprite2D" parent="Guide/MoveGuide"]
+position = Vector2(36.3516, -2.7962)
+scale = Vector2(0.179132, 0.191397)
+texture = ExtResource("19_6jqna")
+region_enabled = true
+region_rect = Rect2(34.7088, 59.3784, 134.759, 89.6966)
+
+[node name="wasd" type="Sprite2D" parent="Guide/MoveGuide"]
+position = Vector2(68.5068, -2.7962)
+scale = Vector2(0.179132, 0.191397)
+texture = ExtResource("19_6jqna")
+region_enabled = true
+region_rect = Rect2(180.647, 60.5237, 134.807, 89.8401)
+
+[node name="space" type="Sprite2D" parent="Guide/MoveGuide"]
+position = Vector2(145.404, 1.39807)
+scale = Vector2(0.179132, 0.191397)
+texture = ExtResource("19_6jqna")
+region_enabled = true
+region_rect = Rect2(39.9783, 162.415, 160.954, 51.2996)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Guide/MoveGuide"]
+offset_right = 296.0
+offset_bottom = 40.0
+scale = Vector2(0.661024, 0.642667)
+theme_override_colors/default_color = Color(0.807843, 0.682353, 0.286275, 1)
+theme_override_fonts/normal_font = ExtResource("19_a82ef")
+theme_override_fonts/bold_font = ExtResource("20_a03bd")
+theme_override_font_sizes/normal_font_size = 8
+text = "Press           /          to move and            to jump
+
+Let's go steal bubbles!
+"
+scroll_active = false
+
+[node name="DoorGuide" type="Node2D" parent="Guide"]
+position = Vector2(672.334, -28.5084)
+scale = Vector2(0.715257, 0.715257)
+
+[node name="u2" type="Sprite2D" parent="Guide/DoorGuide"]
+position = Vector2(44.7391, 12.5829)
+scale = Vector2(0.179132, 0.191397)
+texture = ExtResource("19_6jqna")
+region_enabled = true
+region_rect = Rect2(338.922, 172.774, 47.1169, 46.6816)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Guide/DoorGuide"]
+offset_right = 296.0
+offset_bottom = 40.0
+scale = Vector2(0.661024, 0.642667)
+theme_override_colors/default_color = Color(0.807843, 0.682353, 0.286275, 1)
+theme_override_fonts/normal_font = ExtResource("19_a82ef")
+theme_override_fonts/bold_font = ExtResource("20_a03bd")
+theme_override_font_sizes/normal_font_size = 8
+text = "Collect enough starts
+
+and press    to open the door
+"
+scroll_active = false
+
+[node name="HappyBubbleGuide" type="Node2D" parent="Guide"]
+position = Vector2(-1149.67, -2.50842)
+scale = Vector2(0.715257, 0.715257)
+script = ExtResource("22_olh05")
+
+[node name="u" type="Sprite2D" parent="Guide/HappyBubbleGuide"]
+position = Vector2(46.1375, 12.5829)
+scale = Vector2(0.179132, 0.191397)
+texture = ExtResource("19_6jqna")
+region_enabled = true
+region_rect = Rect2(337.926, 105.722, 47.1167, 47.2256)
+
+[node name="i" type="Sprite2D" parent="Guide/HappyBubbleGuide"]
+position = Vector2(60.1185, 12.5829)
+scale = Vector2(0.179132, 0.191397)
+texture = ExtResource("19_6jqna")
+region_enabled = true
+region_rect = Rect2(391.905, 105.504, 47.2255, 47.2256)
+
+[node name="1" type="Sprite2D" parent="Guide/HappyBubbleGuide"]
+position = Vector2(79.6918, 12.5829)
+scale = Vector2(0.179132, 0.191397)
+texture = ExtResource("19_6jqna")
+region_enabled = true
+region_rect = Rect2(452.455, 109.25, 46.5727, 46.8991)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Guide/HappyBubbleGuide"]
+offset_right = 296.0
+offset_bottom = 40.0
+scale = Vector2(0.661024, 0.642667)
+theme_override_colors/default_color = Color(0.807843, 0.682353, 0.286275, 1)
+theme_override_fonts/normal_font = ExtResource("19_a82ef")
+theme_override_fonts/bold_font = ExtResource("20_a03bd")
+theme_override_font_sizes/normal_font_size = 8
+text = "Get happy bubble!
+
+Now press    /    or    to switch!"
+scroll_active = false
+
+[node name="HappyStatusGuide" type="Node2D" parent="Guide"]
+position = Vector2(-1149.67, -2.50842)
+scale = Vector2(0.715257, 0.715257)
+script = ExtResource("22_olh05")
+type = "status_change"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Guide/HappyStatusGuide"]
+offset_left = 180.355
+offset_top = 34.9525
+offset_right = 476.355
+offset_bottom = 74.9525
+scale = Vector2(0.661024, 0.642667)
+theme_override_colors/default_color = Color(0.807843, 0.682353, 0.286275, 1)
+theme_override_fonts/normal_font = ExtResource("19_a82ef")
+theme_override_fonts/bold_font = ExtResource("20_a03bd")
+theme_override_font_sizes/normal_font_size = 8
+text = "Cool! Now you can jump heigher!"
+scroll_active = false
+
+[node name="AngryBubbleGuide" type="Node2D" parent="Guide"]
+position = Vector2(-678.666, -93.5084)
+scale = Vector2(0.715257, 0.715257)
+script = ExtResource("22_olh05")
+status = "angry"
+
+[node name="u" type="Sprite2D" parent="Guide/AngryBubbleGuide"]
+position = Vector2(46.1375, 12.5829)
+scale = Vector2(0.179132, 0.191397)
+texture = ExtResource("19_6jqna")
+region_enabled = true
+region_rect = Rect2(337.926, 105.722, 47.1167, 47.2256)
+
+[node name="i" type="Sprite2D" parent="Guide/AngryBubbleGuide"]
+position = Vector2(60.1185, 12.5829)
+scale = Vector2(0.179132, 0.191397)
+texture = ExtResource("19_6jqna")
+region_enabled = true
+region_rect = Rect2(391.905, 105.504, 47.2255, 47.2256)
+
+[node name="2" type="Sprite2D" parent="Guide/AngryBubbleGuide"]
+position = Vector2(79.6918, 12.5829)
+scale = Vector2(0.179132, 0.191397)
+texture = ExtResource("19_6jqna")
+region_enabled = true
+region_rect = Rect2(506.483, 108.296, 46.3464, 47.5314)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Guide/AngryBubbleGuide"]
+offset_right = 296.0
+offset_bottom = 40.0
+scale = Vector2(0.661024, 0.642667)
+theme_override_colors/default_color = Color(0.807843, 0.682353, 0.286275, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("19_a82ef")
+theme_override_fonts/bold_font = ExtResource("20_a03bd")
+theme_override_font_sizes/normal_font_size = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_a3qbm")
+text = "Get Angry bubble!
+
+Now press    /    or    to switch!"
+scroll_active = false
+
+[node name="AngryStatusGuide" type="Node2D" parent="Guide"]
+position = Vector2(-750.666, -91.5084)
+scale = Vector2(0.715257, 0.715257)
+script = ExtResource("22_olh05")
+type = "status_change"
+status = "angry"
+
+[node name="J" type="Sprite2D" parent="Guide/AngryStatusGuide"]
+position = Vector2(226.492, 47.5354)
+scale = Vector2(0.179132, 0.191397)
+texture = ExtResource("19_6jqna")
+region_enabled = true
+region_rect = Rect2(396.372, 173.204, 46.4639, 46.3551)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Guide/AngryStatusGuide"]
+offset_left = 180.355
+offset_top = 34.9525
+offset_right = 476.355
+offset_bottom = 74.9525
+scale = Vector2(0.661024, 0.642667)
+theme_override_colors/default_color = Color(0.807843, 0.682353, 0.286275, 1)
+theme_override_fonts/normal_font = ExtResource("19_a82ef")
+theme_override_fonts/bold_font = ExtResource("20_a03bd")
+theme_override_font_sizes/normal_font_size = 8
+text = "Wow! Looks pretty destructive!
+
+Now press    to unleash your skill."
+scroll_active = false
+
+[node name="SadBubbleGuide" type="Node2D" parent="Guide"]
+position = Vector2(-497.666, -140.508)
+scale = Vector2(0.715257, 0.715257)
+script = ExtResource("22_olh05")
+status = "sad"
+
+[node name="u" type="Sprite2D" parent="Guide/SadBubbleGuide"]
+position = Vector2(46.1375, 12.5829)
+scale = Vector2(0.179132, 0.191397)
+texture = ExtResource("19_6jqna")
+region_enabled = true
+region_rect = Rect2(337.926, 105.722, 47.1167, 47.2256)
+
+[node name="i" type="Sprite2D" parent="Guide/SadBubbleGuide"]
+position = Vector2(60.1185, 12.5829)
+scale = Vector2(0.179132, 0.191397)
+texture = ExtResource("19_6jqna")
+region_enabled = true
+region_rect = Rect2(391.905, 105.504, 47.2255, 47.2256)
+
+[node name="3" type="Sprite2D" parent="Guide/SadBubbleGuide"]
+position = Vector2(79.6918, 12.5829)
+scale = Vector2(0.179132, 0.191397)
+texture = ExtResource("19_6jqna")
+region_enabled = true
+region_rect = Rect2(560.37, 109.261, 46.7414, 46.7414)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Guide/SadBubbleGuide"]
+offset_right = 296.0
+offset_bottom = 40.0
+scale = Vector2(0.661024, 0.642667)
+theme_override_colors/default_color = Color(0.807843, 0.682353, 0.286275, 1)
+theme_override_fonts/normal_font = ExtResource("19_a82ef")
+theme_override_fonts/bold_font = ExtResource("20_a03bd")
+theme_override_font_sizes/normal_font_size = 8
+text = "Get sad bubble!
+
+Now press    /    or    to switch!"
+scroll_active = false
+metadata/_edit_use_anchors_ = true
+
+[node name="SadStatusGuide" type="Node2D" parent="Guide"]
+position = Vector2(-643.666, -140.508)
+scale = Vector2(0.715257, 0.715257)
+script = ExtResource("22_olh05")
+type = "status_change"
+status = "sad"
+
+[node name="hide" type="Sprite2D" parent="Guide/SadStatusGuide"]
+position = Vector2(237.677, 71.3031)
+scale = Vector2(0.661356, 0.661356)
+texture = ExtResource("15_2la50")
+
+[node name="J" type="Sprite2D" parent="Guide/SadStatusGuide"]
+position = Vector2(208.317, 47.5354)
+scale = Vector2(0.179132, 0.191397)
+texture = ExtResource("19_6jqna")
+region_enabled = true
+region_rect = Rect2(396.372, 173.204, 46.4639, 46.3551)
+
+[node name="J2" type="Sprite2D" parent="Guide/SadStatusGuide"]
+position = Vector2(239.075, 74.0993)
+scale = Vector2(0.179132, 0.191397)
+texture = ExtResource("19_6jqna")
+region_enabled = true
+region_rect = Rect2(396.372, 173.204, 46.4639, 46.3551)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Guide/SadStatusGuide"]
+offset_left = 180.0
+offset_top = 35.0
+offset_right = 441.0
+offset_bottom = 75.0
+scale = Vector2(0.661024, 0.642667)
+theme_override_colors/default_color = Color(0.807843, 0.682353, 0.286275, 1)
+theme_override_fonts/normal_font = ExtResource("19_a82ef")
+theme_override_fonts/bold_font = ExtResource("20_a03bd")
+theme_override_font_sizes/normal_font_size = 8
+text = "Sadness makes you quiet and hidden.
+
+Press    to hide with the power of
+
+Sadness."
+scroll_active = false
+
+[node name="FearBubbleGuide" type="Node2D" parent="Guide"]
+position = Vector2(-339.666, -32.5084)
+scale = Vector2(0.715257, 0.715257)
+script = ExtResource("22_olh05")
+status = "fear"
+
+[node name="u" type="Sprite2D" parent="Guide/FearBubbleGuide"]
+position = Vector2(46.1375, 12.5829)
+scale = Vector2(0.179132, 0.191397)
+texture = ExtResource("19_6jqna")
+region_enabled = true
+region_rect = Rect2(337.926, 105.722, 47.1167, 47.2256)
+
+[node name="i" type="Sprite2D" parent="Guide/FearBubbleGuide"]
+position = Vector2(60.1185, 12.5829)
+scale = Vector2(0.179132, 0.191397)
+texture = ExtResource("19_6jqna")
+region_enabled = true
+region_rect = Rect2(391.905, 105.504, 47.2255, 47.2256)
+
+[node name="3" type="Sprite2D" parent="Guide/FearBubbleGuide"]
+position = Vector2(79.6918, 12.5829)
+scale = Vector2(0.179132, 0.191397)
+texture = ExtResource("19_6jqna")
+region_enabled = true
+region_rect = Rect2(614.152, 108.873, 46.7904, 47.1861)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Guide/FearBubbleGuide"]
+offset_right = 296.0
+offset_bottom = 40.0
+scale = Vector2(0.661024, 0.642667)
+theme_override_colors/default_color = Color(0.807843, 0.682353, 0.286275, 1)
+theme_override_fonts/normal_font = ExtResource("19_a82ef")
+theme_override_fonts/bold_font = ExtResource("20_a03bd")
+theme_override_font_sizes/normal_font_size = 8
+text = "Get fear bubble!
+
+Now press    /    or    to switch!"
+scroll_active = false
+metadata/_edit_use_anchors_ = true
+
+[node name="FearStatusGuide" type="Node2D" parent="Guide"]
+position = Vector2(-414.666, -37.5084)
+scale = Vector2(0.715257, 0.715257)
+script = ExtResource("22_olh05")
+type = "status_change"
+status = "fear"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Guide/FearStatusGuide"]
+offset_left = 153.791
+offset_top = 41.943
+offset_right = 414.791
+offset_bottom = 81.943
+scale = Vector2(0.661024, 0.642667)
+theme_override_colors/default_color = Color(0.807843, 0.682353, 0.286275, 1)
+theme_override_fonts/normal_font = ExtResource("19_a82ef")
+theme_override_fonts/bold_font = ExtResource("20_a03bd")
+theme_override_font_sizes/normal_font_size = 8
+text = "Fear boosts your speed. 
+
+Let's escape quickly!"
+scroll_active = false
+
+[node name="Coin" parent="Guide" instance=ExtResource("4_ukyv1")]
+position = Vector2(-583.666, -131.508)
+
+[node name="music" type="Node" parent="."]
+
+[node name="Sound" parent="music" instance=ExtResource("18_ruldq")]
+
+[node name="BackgroundMusic" parent="music" instance=ExtResource("16_bmfgk")]
+
+[node name="Player" parent="." instance=ExtResource("1_eej56")]
+z_index = 1
+position = Vector2(-1309.67, -39.5084)
+
+[node name="Level1" type="Node2D" parent="."]
+
+[node name="Level1Tail" type="Node2D" parent="Level1"]
+
+[node name="tail2" type="TileMapLayer" parent="Level1/Level1Tail"]
+position = Vector2(8, 0)
+tile_map_data = PackedByteArray("AADz/wMAAQACAAAAAAD0/wMAAQADAAAAAAD1/wMAAQAFAAAAAAD2/wMAAQABAAAAAAD3/wMAAQACAAAAAAD4/wMAAQACAAAAAAD5/wMAAQACAAEAAAD6/wMAAQAFAAEAAAD6/wIAAQAFAAEAAAD6/wEAAQAEAAAAAAD7/wEAAQABAAAAAAD8/wEAAQACAAAAAAD7/wIAAQABAAEAAAD8/wIAAQAEAAEAAAD7/wMAAQACAAEAAAD8/wMAAQADAAEAAAD9/wMAAQACAAEAAAD+/wMAAQACAAEAAAD9/wIAAQAFAAEAAAD9/wEAAQADAAAAAAD+/wEAAQAEAAAAAAD//wEAAQAEAAAAAAD+/wIAAQABAAEAAAD//wIAAQACAAEAAAD//wMAAQABAAEAAAAAAAMAAQADAAEAAAAAAAIAAQABAAEAAAAAAAEAAQACAAAAAAD6////AAAAAAEAAAD8////AAAAAAEAAAD7////AAAAAAEAAAD9////AAAAAAEAAAD6//7/AAAEAAEAAAD7//7/AAADAAEAAAD8//7/AAACAAAAAAD5//7/AAAAAAEAAAD5//3/AAABAAAAAAD7//z/AAAAAAEAAAD8//z/AAAAAAEAAAD9//z/AAAAAAEAAAD+//z/AAAAAAEAAAD+//3/AAAAAAEAAAD7//v/AAABAAEAAAD8//v/AAAEAAEAAAD2//7/AAACAAEAAAD0//7/AAACAAEAAAABAAEAAQADAAAAAAACAAEAAQAFAAAAAAABAAIAAQACAAEAAAACAAIAAQACAAEAAAABAAMAAQABAAEAAAACAAMAAQABAAEAAAADAAMAAQACAAEAAAADAAEAAQAHAAAAAAADAAIAAQAGAAEAAAAEAAEAAQAHAAAAAADw/wIAAQAJAAEAAADw/wMAAQAFAAAAAADx/wMAAQACAAEAAADy/wMAAQADAAAAAAAFAAEAAQAGAAAAAAAGAAEAAQAHAAAAAAAHAAEAAQACAAAAAAAIAAEAAQACAAAAAAAJAAEAAQADAAAAAAAKAAEAAQABAAAAAAALAAEAAQACAAAAAAAMAAEAAQADAAAAAAANAAEAAQACAAEAAAAOAAEAAQACAAEAAAAPAAEAAQADAAEAAADI/wMAAQABAAEAAADJ/wMAAQACAAEAAADK/wMAAQACAAEAAADL/wMAAQACAAEAAADM/wMAAQAGAAAAAADN/wMAAQAGAAAAAADO/wMAAQAGAAAAAADP/wMAAQAGAAAAAADQ/wMAAQAGAAAAAADR/wMAAQAGAAAAAADS/wMAAQAGAAAAAADT/wMAAQAGAAAAAADU/wMAAQAGAAAAAADV/wMAAQAGAAAAAADW/wMAAQAGAAAAAADX/wMAAQAGAAAAAADY/wMAAQAGAAAAAADZ/wMAAQAGAAAAAADa/wMAAQAGAAAAAADb/wMAAQAGAAAAAADc/wMAAQAGAAAAAADd/wMAAQAGAAAAAADe/wMAAQAGAAAAAADf/wMAAQAGAAAAAADg/wMAAQACAAEAAADh/wMAAQACAAEAAADi/wMAAQACAAEAAADj/wMAAQACAAEAAADk/wMAAQACAAEAAADl/wMAAQACAAEAAADm/wMAAQACAAEAAADn/wMAAQACAAEAAADo/wMAAQACAAEAAADp/wMAAQACAAEAAADq/wMAAQACAAEAAADr/wMAAQACAAEAAADs/wMAAQACAAEAAADt/wMAAQACAAAAAADu/wMAAQACAAAAAADv/wMAAQACAAAAAAAEAAIAAQAGAAEAAAAFAAIAAQAGAAEAAAAGAAIAAQAHAAEAAAAEAAMAAQAAAAEAAAAFAAMAAQABAAEAAAAGAAMAAQACAAEAAAAHAAMAAQACAAEAAAAAAPr/AAAAAAEAAAABAPv/AAAAAAEAAAABAPz/AAAAAAEAAAAEAPv/AAABAAAAAAAEAPz/AAAAAAEAAAAFAPz/AAAAAAEAAAAFAPv/AAABAAEAAAAGAPz/AAAAAAEAAAADAP7/AAAAAAEAAAAEAP7/AAABAAEAAAAFAP7/AAACAAEAAAAGAP7/AAADAAEAAAAHAP7/AAADAAEAAAAIAAIAAQABAAEAAAAHAAIAAQAEAAEAAAAJAAIAAQACAAEAAAAKAAIAAQADAAEAAAALAP//AAABAAAAAAALAAIAAQABAAEAAAALAAMAAQACAAEAAAAKAAMAAQACAAEAAAAJAAMAAQABAAEAAAAIAAMAAQACAAEAAAAMAAIAAQACAAEAAAAMAAMAAQACAAEAAAANAAMAAQABAAEAAAANAAIAAQACAAEAAAAOAAIAAQACAAEAAAAOAAMAAQACAAEAAAANAAAAAQACAAEAAAANAP//AQABAAEAAAANAP7/AQAAAAAAAAAOAP7/AQABAAAAAAAPAP7/AQACAAAAAAAOAP//AQACAAEAAAAPAP//AQACAAEAAAAOAAAAAQAEAAEAAAAPAAAAAQACAAEAAAAPAAIAAQACAAEAAAAPAAMAAQACAAEAAAAQAAIAAQAAAAAAAAAQAAMAAQAAAAEAAAARAAMAAQABAAEAAAARAAIAAQABAAAAAAASAAIAAQACAAEAAAASAAMAAQACAAEAAAATAAMAAQAGAAEAAAATAAIAAQAGAAAAAAAUAAIAAQAHAAAAAAAUAAMAAQAHAAEAAAASAAEAAQACAAEAAAASAAAAAQACAAEAAAASAP//AQACAAEAAAASAP7/AQACAAEAAAASAP3/AQACAAEAAAAPAPz/AQAAAAAAAAARAPz/AQACAAAAAAASAPz/AQADAAAAAAAQAPz/AQABAAAAAAAVAAIAAQAGAAAAAAAWAAIAAQAHAAAAAAAVAAMAAQAGAAEAAAAWAAMAAQAHAAEAAAAXAAMAAQAAAAEAAAAYAAMAAQACAAEAAAAZAAMAAQACAAEAAAAXAAIAAQAAAAEAAAAYAAIAAQABAAEAAAAZAAIAAQACAAEAAAAXAAEAAQAAAAEAAAAYAAEAAQACAAEAAAAZAAEAAQACAAEAAAAXAAAAAQAAAAEAAAAYAAAAAQACAAEAAAAZAAAAAQACAAEAAAAXAP//AQAAAAEAAAAYAP//AQAEAAEAAAAZAP//AQACAAEAAAAXAP7/AQAAAAEAAAAYAP7/AQABAAEAAAAZAP7/AQACAAEAAAAXAP3/AQAAAAEAAAAYAP3/AQABAAEAAAAZAP3/AQACAAEAAAAXAPz/AQAAAAAAAAAYAPz/AQABAAAAAAAZAPz/AQACAAAAAAATAP3/AQAIAAAAAAATAP7/AQAIAAAAAAATAP//AQAIAAAAAAATAAAAAQAIAAAAAAATAAEAAQAIAAAAAAAWAP3/AQAJAAAAAAAWAP7/AQAJAAAAAAAWAP//AQAJAAAAAAAWAAAAAQAJAAAAAAAWAAEAAQAJAAAAAAAaAPz/AQACAAAAAAAbAPz/AQADAAAAAAAcAPz/AQAEAAAAAAAdAPz/AQACAAAAAAAeAPz/AQADAAAAAAAfAPz/AQAFAAAAAAAdAPr/AAAAAAAAAAAeAPr/AAABAAEAAAAfAPr/AAACAAEAAAAcAP7/AAABAAAAAAAcAP//AAAAAAEAAAAdAP//AAADAAEAAAAdAAAAAAAAAAEAAAAcAAAAAAAAAAEAAAAaAAIAAQACAAEAAAAaAAMAAQACAAEAAAAbAAMAAQACAAAAAAAcAAMAAQACAAEAAAAcAAIAAQAEAAAAAAAeAAEAAAAAAAEAAAAdAAMAAQAAAAAAAAAeAAMAAQABAAAAAAAfAAMAAQAFAAAAAAAgAAMAAQACAAAAAAAfAAAAAAAAAAEAAAAgAAAAAAAAAAEAAAAhAAAAAAAAAAEAAAAhAP//AAAAAAEAAAAfAP3/AQACAAEAAAAfAP7/AQACAAEAAAAhAAMAAQADAAAAAAAiAAMAAQACAAAAAAAjAAMAAQADAAAAAAAkAAMAAQAEAAAAAAAmAAMAAQABAAAAAAAnAAIAAQACAAEAAAAnAAMAAQACAAEAAAAoAAIAAQACAAEAAAAoAAMAAQACAAEAAAAnAAAAAQAAAAAAAAAnAAEAAQABAAEAAAAoAAAAAQACAAAAAAAoAAEAAQACAAEAAAAlAAMAAQACAAAAAADz//7/AAAAAAEAAADz//3/AAAAAAEAAADz//z/AAAAAAEAAADx/wIAAQACAAEAAADx/wEAAQAAAAAAAADu/wIAAQAIAAEAAADs/wIAAQAIAAEAAADr/wIAAQABAAEAAADq/wIAAQABAAAAAADp/wIAAQACAAAAAADo/wIAAQACAAAAAADn/wIAAQACAAAAAADm/wIAAQACAAAAAADr/wEAAQAAAAAAAADl/wIAAQACAAAAAADk/wIAAQABAAAAAADk/wEAAAABAAAAAADh/wIAAQABAAAAAADg/wIAAQAAAAAAAADg/wEAAAAAAAAAAADf/wAAAAAAAAAAAADe////AAAAAAAAAADd//7/AAAAAAEAAADc//3/AAAAAAEAAADb//3/AAAAAAEAAADc//7/AAAAAAEAAADa//3/AAAAAAEAAADZ//3/AAAAAAEAAADY//3/AAAAAAEAAADX//3/AAAAAAEAAADa//n/AAAEAAEAAADa/wAAAAACAAIAAADZ/wAAAAACAAIAAADb/wAAAAACAAIAAADb/wEAAAACAAIAAADa/wEAAAACAAIAAADZ/wEAAAACAAIAAADS////AAACAAIAAADR////AAACAAIAAADO//7/AAACAAIAAADN//7/AAACAAIAAADL/wIAAQAAAAEAAADL/wEAAQABAAEAAADL/wAAAQACAAEAAADL////AQACAAEAAADL//7/AQABAAAAAADK/wIAAQAAAAEAAADK/wEAAQAAAAEAAADK/wAAAQAEAAEAAADK////AQABAAEAAADK//7/AQAAAAAAAADF/wMAAQACAAAAAADG/wMAAQACAAAAAADH/wMAAQACAAEAAADH/wIAAQAAAAEAAADI/wIAAQACAAEAAADJ/wIAAQAEAAEAAADI/wEAAQABAAAAAADJ/wEAAQABAAEAAADH/wEAAQAAAAAAAADD/wMAAQAEAAAAAADE/wMAAQAEAAAAAADX//f/AAACAAEAAADY//f/AAABAAEAAADZ//f/AAACAAIAAADY//j/AAAAAAIAAADY//n/AAAAAAIAAADZ//j/AAAAAAIAAADZ//n/AAAAAAIAAADV//f/AAAAAAIAAADW//f/AAABAAEAAADU//f/AAABAAAAAADb//n/AAACAAIAAADc//n/AAAAAAIAAADd//n/AAAAAAIAAADc//j/AAAAAAIAAADd//j/AAAAAAIAAADt/wIAAQAIAAEAAAD1//7/AAACAAAAAADV/wAAAAAAAAEAAADW/wAAAAAAAAEAAADX/wAAAAABAAEAAADJ/wAAAQABAAAAAAARAAAAAQADAAAAAAD5/wIAAQAFAAAAAAD3//7/AAAFAAEAAADT//3/AAADAAEAAADU//3/AAAFAAEAAADT////AAABAAAAAADP//7/AAABAAAAAAC+/wMAAQAAAAAAAAC//wMAAQACAAAAAADA/wMAAQADAAAAAADB/wMAAQADAAAAAADC/wMAAQAEAAAAAAC1/wMAAQAAAAAAAAC2/wMAAQABAAAAAAC3/wMAAQACAAAAAAC4/wMAAQADAAAAAAC5/wMAAQADAAAAAAC6/wMAAQADAAAAAAC7/wMAAQADAAAAAAC8/wMAAQADAAAAAAC9/wMAAQABAAAAAADd//3/AAAAAAAAAADe//7/AAAAAAAAAADe//3/AAAAAAAAAADf////AAAAAAEAAADf//7/AAAAAAEAAADf//3/AAAAAAAAAADf//v/AAAAAAAAAADf//r/AAAAAAAAAADf//n/AAAAAAAAAADe//n/AAAAAAAAAADe//j/AAAAAAAAAADf//j/AAAAAAAAAADm////AAABAAAAAADn////AAABAAEAAADo////AAACAAEAAADp////AAACAAAAAAApAAMAAQACAAEAAAAqAAMAAQACAAEAAAArAAMAAQACAAEAAAAsAAMAAQACAAEAAAAtAAMAAQAGAAEAAAAuAAMAAQAGAAEAAAApAAIAAQACAAEAAAAqAAIAAQACAAEAAAArAAIAAQACAAEAAAAsAAIAAQACAAEAAAAtAAIAAQAGAAEAAAAuAAIAAQAGAAEAAAAqAAEAAQACAAEAAAArAAEAAQACAAEAAAAsAAEAAQACAAEAAAAtAAEAAQAGAAAAAAAuAAEAAQAGAAAAAAApAAEAAQACAAEAAAApAAAAAQABAAAAAAAqAAAAAQABAAAAAAArAAAAAQABAAAAAAAsAAAAAQABAAAAAAAtAAAAAQABAAAAAAAuAAAAAQABAAAAAAAvAAEAAQAGAAAAAAAwAAEAAQAGAAAAAAAxAAEAAQAGAAAAAAAyAAEAAQAGAAAAAAAzAAEAAQAGAAAAAAA0AAEAAQAGAAAAAAAvAAIAAQAGAAEAAAAvAAMAAQAGAAEAAAAwAAMAAQAGAAEAAAAxAAMAAQAGAAEAAAAyAAMAAQAGAAEAAAAwAAIAAQAGAAEAAAAxAAIAAQAGAAEAAAAyAAIAAQAGAAEAAAAzAAIAAQAGAAEAAAAzAAMAAQAGAAEAAAA0AAMAAQAGAAEAAAA0AAIAAQAGAAEAAAA1AAEAAQAGAAAAAAA2AAEAAQAGAAAAAAA1AAIAAQAGAAEAAAA1AAMAAQAGAAEAAAA2AAIAAQAGAAEAAAA2AAMAAQAGAAEAAAAbAAAAAAAAAAAAAAAaAP7/AQAAAAAAAAAiAP3/AAABAAAAAAAjAP3/AAACAAAAAAAkAP//AAACAAAAAAAlAP//AAACAAAAAADg//7/AAACAAIAAACg/wMAAQAGAAEAAACh/wMAAQAGAAEAAACi/wMAAQAGAAEAAACj/wMAAQAGAAEAAACk/wMAAQAGAAEAAACl/wMAAQAGAAEAAACm/wMAAQAGAAEAAACn/wMAAQAGAAEAAACo/wMAAQAGAAEAAACp/wMAAQAHAAEAAACq/wMAAQAGAAEAAACr/wMAAQAGAAEAAACg/wIAAQAGAAAAAACh/wIAAQAGAAAAAACi/wIAAQAGAAAAAACj/wIAAQAGAAAAAACk/wIAAQAGAAAAAACl/wIAAQAGAAAAAACm/wIAAQAGAAAAAACn/wIAAQAGAAAAAACo/wIAAQAGAAAAAACp/wIAAQAGAAAAAACq/wIAAQAGAAAAAACr/wIAAQAGAAAAAACs/wMAAQACAAEAAACt/wMAAQABAAEAAACu/wMAAQACAAEAAACv/wMAAQACAAEAAACw/wMAAQACAAEAAACx/wMAAQACAAEAAACy/wMAAQAEAAEAAACz/wMAAQADAAEAAAC0/wMAAQACAAEAAACs/wIAAQACAAEAAACt/wIAAQACAAEAAACu/wIAAQACAAEAAACv/wIAAQAEAAEAAACw/wIAAQACAAEAAACx/wIAAQADAAEAAACy/wIAAQACAAEAAACz/wIAAQACAAEAAAC0/wIAAQAFAAAAAACq/wEAAQAAAAAAAACr/wEAAQABAAAAAACs/wEAAQABAAAAAACt/wEAAQABAAAAAACu/wEAAQABAAAAAACv/wEAAQABAAAAAACw/wEAAQABAAAAAACx/wEAAQABAAAAAACy/wEAAQABAAAAAACz/wEAAQAFAAAAAADi/wIAAQAAAAAAAADj/wIAAQABAAAAAADp//7/AAAAAAAAAADp//3/AAAAAAAAAADp//z/AAAAAAAAAADp//v/AAABAAEAAADg////AAACAAAAAADg/wAAAAAAAAAAAADh/wAAAAAAAAAAAAD1//j/AAAAAAAAAAD2//j/AAABAAAAAAD3//j/AAACAAEAAAD4//j/AAAAAAAAAAD5//j/AAABAAEAAAD6//j/AAADAAEAAAAJAP3/AAABAAAAAADh//r/AAABAAEAAADi//r/AAAAAAAAAADk//z/AAAAAAAAAADl//z/AAABAAAAAADm//z/AAACAAIAAADq//v/AAAFAAEAAADe//f/AAABAAEAAADd//f/AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_gnicm")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Level1/Level1Tail"]
+position = Vector2(8, 0)
+tile_map_data = PackedByteArray("AAAZAPv/AAAFAAAAAAD7//r/AAAGAAIAAAD7//n/AAAGAAIAAAD7//j/AAAGAAEAAAAcAPv/AAAGAAIAAAAcAPr/AAAGAAEAAADn//7/AAAGAAIAAADn//3/AAAGAAIAAADn//z/AAAGAAEAAAA=")
+tile_set = SubResource("TileSet_p0gkg")
+
+[node name="guide" type="Node" parent="Level1"]
+
+[node name="door" type="Sprite2D" parent="Level1/guide"]
+visible = false
+position = Vector2(845.666, 120.508)
+scale = Vector2(0.11342, 0.11342)
+texture = ExtResource("16_m54nf")
+region_enabled = true
+region_rect = Rect2(954.607, 1053.58, 578.549, 165.001)
+
+[node name="Step1" type="Sprite2D" parent="Level1/guide"]
+visible = false
+position = Vector2(-1134, 82)
+scale = Vector2(0.115498, 0.115498)
+texture = ExtResource("14_st60e")
+region_enabled = true
+region_rect = Rect2(1.77014, 0, 530.972, 347.332)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level1/guide"]
+visible = false
+position = Vector2(-880, 155)
+scale = Vector2(0.113724, 0.113724)
+texture = ExtResource("14_st60e")
+region_enabled = true
+region_rect = Rect2(0, 626.171, 727.174, 150.793)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Level1/guide"]
+visible = false
+position = Vector2(-794.334, 152.508)
+scale = Vector2(0.10915, 0.10915)
+texture = ExtResource("14_st60e")
+region_enabled = true
+region_rect = Rect2(0, 804.87, 722.517, 62.6356)
+
+[node name="Sprite2D5" type="Sprite2D" parent="Level1/guide"]
+visible = false
+position = Vector2(-418.335, 72.5084)
+scale = Vector2(0.11342, 0.11342)
+texture = ExtResource("14_st60e")
+region_enabled = true
+region_rect = Rect2(0, 1183.41, 672.705, 103.59)
+
+[node name="Sprite2D6" type="Sprite2D" parent="Level1/guide"]
+visible = false
+position = Vector2(-298.335, 48.5085)
+scale = Vector2(0.11342, 0.11342)
+texture = ExtResource("14_st60e")
+region_enabled = true
+region_rect = Rect2(954.249, 113.673, 693.842, 176.907)
+
+[node name="Sprite2D7" type="Sprite2D" parent="Level1/guide"]
+visible = false
+position = Vector2(-162.335, 117.508)
+scale = Vector2(0.11342, 0.11342)
+texture = ExtResource("14_st60e")
+region_enabled = true
+region_rect = Rect2(914.359, 679.111, 753.576, 263.798)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Level1/guide"]
+visible = false
+position = Vector2(-506.334, 64.5084)
+scale = Vector2(0.11342, 0.11342)
+texture = ExtResource("14_st60e")
+region_enabled = true
+region_rect = Rect2(0, 1012.14, 749.984, 160.824)
+
+[node name="npcs" type="Node" parent="Level1/guide"]
+
+[node name="happy" parent="Level1/guide/npcs" instance=ExtResource("9_5lypr")]
+position = Vector2(-970.334, 179.508)
+
+[node name="angry" parent="Level1/guide/npcs" instance=ExtResource("9_5lypr")]
+position = Vector2(-498.334, 83.5084)
+status_type = "angry"
+
+[node name="sad" parent="Level1/guide/npcs" instance=ExtResource("9_5lypr")]
+position = Vector2(-337, 38)
+status_type = "sad"
+
+[node name="fear" parent="Level1/guide/npcs" instance=ExtResource("9_5lypr")]
+position = Vector2(-178.334, 147.508)
+status_type = "fear"
+
+[node name="coins" type="Node" parent="Level1"]
+
+[node name="Coin15" parent="Level1/coins" instance=ExtResource("4_ukyv1")]
+position = Vector2(-546, 87)
+
+[node name="Coin16" parent="Level1/coins" instance=ExtResource("4_ukyv1")]
+position = Vector2(573.662, 168.508)
+
+[node name="Coin17" parent="Level1/coins" instance=ExtResource("4_ukyv1")]
+position = Vector2(229.666, 104.508)
+
+[node name="Coin18" parent="Level1/coins" instance=ExtResource("4_ukyv1")]
+position = Vector2(-234, 117)
+
+[node name="Coin19" parent="Level1/coins" instance=ExtResource("4_ukyv1")]
+position = Vector2(-338, 167)
+
+[node name="Coin20" parent="Level1/coins" instance=ExtResource("4_ukyv1")]
+position = Vector2(18.6656, -5.49158)
+
+[node name="Coin2" parent="Level1/coins" instance=ExtResource("4_ukyv1")]
+position = Vector2(-450, 135)
+
+[node name="Coin3" parent="Level1/coins" instance=ExtResource("4_ukyv1")]
+position = Vector2(-235, 166)
+
+[node name="Coin4" parent="Level1/coins" instance=ExtResource("4_ukyv1")]
+position = Vector2(-82, 150)
+
+[node name="Coin7" parent="Level1/coins" instance=ExtResource("4_ukyv1")]
+position = Vector2(-34.3344, 96.5084)
+
+[node name="Coin8" parent="Level1/coins" instance=ExtResource("4_ukyv1")]
+position = Vector2(77.6656, 104.508)
+
+[node name="Coin10" parent="Level1/coins" instance=ExtResource("4_ukyv1")]
+position = Vector2(333.662, 112.508)
+
+[node name="Coin11" parent="Level1/coins" instance=ExtResource("4_ukyv1")]
+position = Vector2(635, 39)
+
+[node name="Coin12" parent="Level1/coins" instance=ExtResource("4_ukyv1")]
+position = Vector2(621.662, 112.508)
+
+[node name="Coin9" parent="Level1/coins" instance=ExtResource("4_ukyv1")]
+position = Vector2(109.666, 104.508)
+
+[node name="Coin" parent="Level1/coins" instance=ExtResource("4_ukyv1")]
+position = Vector2(29.6656, 160.508)
+
+[node name="Coin5" parent="Level1/coins" instance=ExtResource("4_ukyv1")]
+position = Vector2(429.662, 128.508)
+
+[node name="Coin6" parent="Level1/coins" instance=ExtResource("4_ukyv1")]
+position = Vector2(173.666, 56.5084)
+
+[node name="BoxObstacle" parent="Level1/coins" instance=ExtResource("8_hw7iy")]
+position = Vector2(85.6656, 152.508)
+
+[node name="BoxObstacle2" parent="Level1/coins" instance=ExtResource("8_hw7iy")]
+position = Vector2(245.662, 104.508)
+
+[node name="BoxObstacle3" parent="Level1/coins" instance=ExtResource("8_hw7iy")]
+position = Vector2(-370.334, 88.5084)
+
+[node name="Coin13" parent="Level1/coins" instance=ExtResource("4_ukyv1")]
+position = Vector2(205.666, 144.508)
+
+[node name="Coin14" parent="Level1/coins" instance=ExtResource("4_ukyv1")]
+position = Vector2(253.662, 144.508)
+
+[node name="Coin21" parent="Level1/coins" instance=ExtResource("4_ukyv1")]
+position = Vector2(893.662, 136.508)
+
+[node name="BoxObstacle4" parent="Level1/coins" instance=ExtResource("8_hw7iy")]
+position = Vector2(397.662, 104.508)
+
+[node name="BoxObstacle5" parent="Level1/coins" instance=ExtResource("8_hw7iy")]
+position = Vector2(605.662, 104.508)
+
+[node name="Door" parent="Level1" instance=ExtResource("14_r7mjc")]
+position = Vector2(648, -24)
+scale = Vector2(2.30606, 2.30606)
+
+[node name="KillArea" type="Node" parent="Level1"]
+
+[node name="Slims" type="Node" parent="Level1/KillArea"]
+
+[node name="Slim" parent="Level1/KillArea/Slims" instance=ExtResource("9_q06y6")]
+position = Vector2(-42, 182)
+scale = Vector2(0.947209, 0.947209)
+speed = 10.0
+
+[node name="Slim2" parent="Level1/KillArea/Slims" instance=ExtResource("9_q06y6")]
+position = Vector2(-202.334, 165.508)
+speed = 10.0
+
+[node name="Drop" parent="Level1/KillArea" instance=ExtResource("3_py6tk")]
+position = Vector2(133.666, 240.508)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level1/KillArea/Drop"]
+shape = SubResource("WorldBoundaryShape2D_ponng")
+
+[node name="KillArea" parent="Level1/KillArea" instance=ExtResource("3_py6tk")]
+position = Vector2(141.666, 144.508)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level1/KillArea/KillArea"]
+position = Vector2(-660, 68)
+shape = SubResource("RectangleShape2D_ilyl2")
+
+[node name="KillArea2" parent="Level1/KillArea" instance=ExtResource("3_py6tk")]
+position = Vector2(141.666, 144.508)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level1/KillArea/KillArea2"]
+position = Vector2(-272, 37.5)
+shape = SubResource("RectangleShape2D_evnr6")
+
+[node name="KillArea3" parent="Level1/KillArea" instance=ExtResource("3_py6tk")]
+position = Vector2(141.666, 144.508)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level1/KillArea/KillArea3"]
+position = Vector2(112, 32)
+shape = SubResource("RectangleShape2D_ukysu")
+
+[node name="KillArea4" parent="Level1/KillArea" instance=ExtResource("3_py6tk")]
+position = Vector2(141.666, 144.508)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level1/KillArea/KillArea4"]
+position = Vector2(344, 1)
+shape = SubResource("RectangleShape2D_yqkim")
+
+[node name="Panel" type="Node2D" parent="."]
+
+[node name="Pannel" parent="Panel" instance=ExtResource("6_pajj0")]
+follow_viewport_scale = 507.41
+
+[node name="NPCDialog" parent="Panel" instance=ExtResource("2_rouue")]
+follow_viewport_scale = 206.128

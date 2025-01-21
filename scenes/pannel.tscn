@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlnq6pdi3kupo"]
+
+[ext_resource type="PackedScene" uid="uid://ja3m7q7qpvlt" path="res://scenes/bubble_pannel.tscn" id="1_3qmii"]
+[ext_resource type="Script" path="res://scripts/pannel.gd" id="1_77x8x"]
+[ext_resource type="FontFile" uid="uid://drljns2yrs1tr" path="res://assets/fonts/PixelOperator8.ttf" id="2_as3is"]
+[ext_resource type="PackedScene" uid="uid://k7il88h50ue6" path="res://scenes/button/exit.tscn" id="4_bpfim"]
+[ext_resource type="PackedScene" uid="uid://bucu5c7vx88m0" path="res://scenes/button/restart.tscn" id="5_i6e1a"]
+
+[node name="Panel" type="CanvasLayer"]
+script = ExtResource("1_77x8x")
+
+[node name="normal" parent="." instance=ExtResource("1_3qmii")]
+position = Vector2(640, 1168)
+scale = Vector2(3.00509, 3.00509)
+bubble_name = "normal"
+status = "active"
+
+[node name="happy" parent="." instance=ExtResource("1_3qmii")]
+position = Vector2(896, 1168)
+scale = Vector2(3.0744, 3.0744)
+
+[node name="angry" parent="." instance=ExtResource("1_3qmii")]
+position = Vector2(1152, 1168)
+scale = Vector2(3.0271, 3.0271)
+bubble_name = "angry"
+
+[node name="sad" parent="." instance=ExtResource("1_3qmii")]
+position = Vector2(1408, 1168)
+scale = Vector2(2.95935, 2.95935)
+bubble_name = "sad"
+
+[node name="fear" parent="." instance=ExtResource("1_3qmii")]
+position = Vector2(1664, 1168)
+scale = Vector2(3.01022, 3.01022)
+bubble_name = "fear"
+
+[node name="HealthLabel" type="Label" parent="."]
+offset_left = 72.0
+offset_top = 144.0
+offset_right = 121.0
+offset_bottom = 167.0
+scale = Vector2(5.53983, 5.53983)
+theme_override_fonts/font = ExtResource("2_as3is")
+theme_override_font_sizes/font_size = 8
+text = "Health"
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 48.0
+offset_right = 113.0
+offset_bottom = 71.0
+scale = Vector2(6.07282, 6.07282)
+theme_override_fonts/font = ExtResource("2_as3is")
+theme_override_font_sizes/font_size = 8
+text = "Score:"
+metadata/_edit_use_anchors_ = true
+
+[node name="Exit" parent="." instance=ExtResource("4_bpfim")]
+offset_top = 1112.0
+offset_bottom = 1152.0
+
+[node name="Restart" parent="." instance=ExtResource("5_i6e1a")]
+offset_left = 2064.0
+offset_right = 2268.0

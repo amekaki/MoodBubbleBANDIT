@@ -1,0 +1,124 @@
+[gd_scene load_steps=10 format=3 uid="uid://c6cnfp6su7b32"]
+
+[ext_resource type="Script" path="res://scenes/window_show.gd" id="1_fwkhw"]
+[ext_resource type="Script" path="res://scripts/dialog.gd" id="2_raouv"]
+[ext_resource type="Texture2D" uid="uid://ilp6x3sd5gm4" path="res://assets/sprites/dialog/npc对话框.png" id="3_6uctv"]
+[ext_resource type="FontFile" uid="uid://p8qv82vmker0" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_i6f6s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivofr"]
+atlas = ExtResource("3_6uctv")
+region = Rect2(0, 0, 123, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp4gw"]
+atlas = ExtResource("3_6uctv")
+region = Rect2(123, 49, 123, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0l7cc"]
+atlas = ExtResource("3_6uctv")
+region = Rect2(123, 0, 123, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knmxc"]
+atlas = ExtResource("3_6uctv")
+region = Rect2(0, 49, 123, 49)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_af8hk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivofr")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dp4gw")
+}],
+"loop": true,
+"name": &"fear",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0l7cc")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knmxc")
+}],
+"loop": true,
+"name": &"sad",
+"speed": 5.0
+}]
+
+[node name="WindowShow" type="CanvasLayer"]
+script = ExtResource("1_fwkhw")
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Control" type="Control" parent="Control2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 328.0
+offset_top = 136.0
+offset_right = 368.0
+offset_bottom = 176.0
+
+[node name="Dialog" type="Area2D" parent="."]
+position = Vector2(392, 312)
+script = ExtResource("2_raouv")
+
+[node name="Background" type="AnimatedSprite2D" parent="Dialog"]
+position = Vector2(760, 584)
+scale = Vector2(8.37491, 8.37491)
+sprite_frames = SubResource("SpriteFrames_af8hk")
+animation = &"sad"
+
+[node name="Question" type="Label" parent="Dialog"]
+offset_left = 320.0
+offset_top = 528.0
+offset_right = 528.0
+offset_bottom = 560.0
+theme_override_colors/font_color = Color(0.230315, 0.230315, 0.230315, 1)
+theme_override_fonts/font = ExtResource("4_i6f6s")
+theme_override_font_sizes/font_size = 32
+text = "choos A
+"
+
+[node name="A1BTN" type="Button" parent="Dialog/Question"]
+layout_mode = 0
+offset_top = 64.0
+offset_right = 28.0
+offset_bottom = 95.0
+scale = Vector2(1.38313, 1.38313)
+
+[node name="A1Text" type="Label" parent="Dialog/Question/A1BTN"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "A1"
+
+[node name="A2BTN" type="Button" parent="Dialog/Question"]
+layout_mode = 0
+offset_top = 136.0
+offset_right = 28.0
+offset_bottom = 167.0
+scale = Vector2(1.38313, 1.38313)
+
+[node name="A2Text" type="Label" parent="Dialog/Question/A2BTN"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "A2"
+
+[connection signal="button_down" from="Dialog/Question/A1BTN" to="." method="_on_a_1btn_button_down"]
+[connection signal="button_down" from="Dialog/Question/A2BTN" to="." method="_on_a_2btn_button_down"]

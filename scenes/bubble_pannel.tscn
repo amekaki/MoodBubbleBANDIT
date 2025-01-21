@@ -1,0 +1,162 @@
+[gd_scene load_steps=17 format=3 uid="uid://ja3m7q7qpvlt"]
+
+[ext_resource type="Script" path="res://scripts/bubble_pannel.gd" id="1_xex4x"]
+[ext_resource type="FontFile" uid="uid://drljns2yrs1tr" path="res://assets/fonts/PixelOperator8.ttf" id="3_7huxr"]
+[ext_resource type="Texture2D" uid="uid://bjeq5f6w7ssi0" path="res://assets/sprites/pannel/状态栏.png" id="3_cg41j"]
+[ext_resource type="Texture2D" uid="uid://bhkhbr5qyuxan" path="res://assets/sprites/小按钮.png" id="3_hbnu6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fp1sw"]
+atlas = ExtResource("3_cg41j")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o1og"]
+atlas = ExtResource("3_cg41j")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jml7t"]
+atlas = ExtResource("3_cg41j")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvios"]
+atlas = ExtResource("3_hbnu6")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei82v"]
+atlas = ExtResource("3_cg41j")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7i0sa"]
+atlas = ExtResource("3_cg41j")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c14ys"]
+atlas = ExtResource("3_cg41j")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grd26"]
+atlas = ExtResource("3_cg41j")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noj7r"]
+atlas = ExtResource("3_cg41j")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibyep"]
+atlas = ExtResource("3_hbnu6")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy0oa"]
+atlas = ExtResource("3_cg41j")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r8ckb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fp1sw")
+}],
+"loop": true,
+"name": &"active_angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5o1og")
+}],
+"loop": true,
+"name": &"active_fear",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jml7t")
+}],
+"loop": true,
+"name": &"active_happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvios")
+}],
+"loop": true,
+"name": &"active_normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ei82v")
+}],
+"loop": true,
+"name": &"active_sad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7i0sa")
+}],
+"loop": true,
+"name": &"grey",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c14ys")
+}],
+"loop": true,
+"name": &"unactive_angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grd26")
+}],
+"loop": true,
+"name": &"unactive_fear",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noj7r")
+}],
+"loop": true,
+"name": &"unactive_happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibyep")
+}],
+"loop": true,
+"name": &"unactive_normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cy0oa")
+}],
+"loop": true,
+"name": &"unactive_sad",
+"speed": 5.0
+}]
+
+[node name="BubblePannel" type="Area2D"]
+scale = Vector2(0.851019, 0.851019)
+script = ExtResource("1_xex4x")
+
+[node name="background" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.144763, 0.0628442)
+scale = Vector2(1.9819, 1.99214)
+sprite_frames = SubResource("SpriteFrames_r8ckb")
+animation = &"unactive_happy"
+
+[node name="Label" type="Label" parent="."]
+offset_left = -16.4509
+offset_top = 18.801
+offset_right = 45.5491
+offset_bottom = 41.801
+scale = Vector2(0.523613, 0.523613)
+theme_override_fonts/font = ExtResource("3_7huxr")
+text = "label"
+horizontal_alignment = 1
+vertical_alignment = 1

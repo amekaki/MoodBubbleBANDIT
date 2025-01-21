@@ -1,0 +1,137 @@
+[gd_scene load_steps=18 format=3 uid="uid://cnwmw2iilglp2"]
+
+[ext_resource type="Texture2D" uid="uid://b32wh6ma0y1pv" path="res://assets/sprites/封面.png" id="1_dx8n2"]
+[ext_resource type="Texture2D" uid="uid://dfhnna2q5ixwq" path="res://assets/sprites/封面背景.png" id="1_i8oky"]
+[ext_resource type="Script" path="res://scripts/start.gd" id="2_flsbp"]
+[ext_resource type="FontFile" uid="uid://p8qv82vmker0" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_tg1t5"]
+[ext_resource type="AudioStream" uid="uid://dgeraolafia0p" path="res://assets/music/player/game_bgm.mp3" id="5_jtk2o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abg22"]
+atlas = ExtResource("1_i8oky")
+region = Rect2(0, 0, 185, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2rn3d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abg22")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8cr7"]
+atlas = ExtResource("1_dx8n2")
+region = Rect2(294, 64, 98, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yir5"]
+atlas = ExtResource("1_dx8n2")
+region = Rect2(196, 64, 98, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo3qd"]
+atlas = ExtResource("1_dx8n2")
+region = Rect2(98, 64, 98, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1j5l"]
+atlas = ExtResource("1_dx8n2")
+region = Rect2(0, 64, 98, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avpii"]
+atlas = ExtResource("1_dx8n2")
+region = Rect2(392, 0, 98, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83sfd"]
+atlas = ExtResource("1_dx8n2")
+region = Rect2(294, 0, 98, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tw6gq"]
+atlas = ExtResource("1_dx8n2")
+region = Rect2(196, 0, 98, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vx02j"]
+atlas = ExtResource("1_dx8n2")
+region = Rect2(98, 0, 98, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8ilp"]
+atlas = ExtResource("1_dx8n2")
+region = Rect2(0, 0, 98, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uce5g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8cr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yir5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jo3qd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1j5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avpii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83sfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw6gq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vx02j")
+}, {
+"duration": 6.0,
+"texture": SubResource("AtlasTexture_m8ilp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Start" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+scale = Vector2(21.0683, 21.0683)
+sprite_frames = SubResource("SpriteFrames_2rn3d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D2"]
+sprite_frames = SubResource("SpriteFrames_uce5g")
+autoplay = "default"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 488.0
+offset_top = 128.0
+offset_right = 648.0
+offset_bottom = 168.0
+scale = Vector2(2.44, 2.44)
+theme_override_fonts/font = ExtResource("3_tg1t5")
+theme_override_font_sizes/font_size = 32
+text = "Start
+"
+script = ExtResource("2_flsbp")
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 496.0
+offset_top = 352.0
+offset_right = 656.0
+offset_bottom = 392.0
+scale = Vector2(2.44, 2.44)
+theme_override_fonts/font = ExtResource("3_tg1t5")
+theme_override_font_sizes/font_size = 32
+text = "Exit
+"
+script = ExtResource("2_flsbp")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_jtk2o")
+autoplay = true
+attenuation = 4.31584e-05
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="button_down" from="Button2" to="Button" method="_on_button_2_button_down"]

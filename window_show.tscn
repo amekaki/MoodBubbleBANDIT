@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://qqqm3m38adqj"]
+
+[ext_resource type="PackedScene" uid="uid://dlnq6pdi3kupo" path="res://scenes/pannel.tscn" id="1_pubwc"]
+
+[node name="WindowShow" type="CanvasLayer"]
+
+[node name="Pannel2" parent="." instance=ExtResource("1_pubwc")]
+scale = Vector2(0.561642, 0.561642)
+transform = Transform2D(0.561642, 0, 0, 0.561642, 0, 0)

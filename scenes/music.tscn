@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmstcx6vitdg2"]
+
+[ext_resource type="AudioStream" uid="uid://dgeraolafia0p" path="res://assets/music/player/game_bgm.mp3" id="1_e176h"]
+[ext_resource type="Script" path="res://scripts/music.gd" id="1_qym5m"]
+[ext_resource type="AudioStream" uid="uid://ceo1ybsnkvocn" path="res://assets/music/player/game_bgm_sad.mp3" id="2_8v0or"]
+[ext_resource type="AudioStream" uid="uid://c6dxp2kqqux33" path="res://assets/music/player/game_bgm_happy.mp3" id="3_waq3q"]
+[ext_resource type="AudioStream" uid="uid://bf1gwvs8clfbc" path="res://assets/music/player/game_bgm_angry.mp3" id="4_v8kot"]
+[ext_resource type="AudioStream" uid="uid://dknhytjaepqs7" path="res://assets/music/player/game_bgm_scared.mp3" id="5_6xykn"]
+
+[node name="Music" type="Node"]
+script = ExtResource("1_qym5m")
+
+[node name="background" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_e176h")
+volume_db = 9.333
+attenuation = 1.15639e-05
+area_mask = 255
+
+[node name="sad" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_8v0or")
+attenuation = 1e-05
+
+[node name="happy" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_waq3q")
+attenuation = 4.46804e-05
+
+[node name="angry" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_v8kot")
+attenuation = 4.78872e-05
+
+[node name="fear" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_6xykn")
+attenuation = 0.000126375
